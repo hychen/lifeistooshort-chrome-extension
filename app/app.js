@@ -6,7 +6,7 @@ var $$ = document.querySelectorAll.bind(document);
 var App = function($el){
   this.$el = $el;
   this.geekMode = true;
-  this.goldenAgeStart = 18;
+  this.younthAgeEnd = 22;
   this.goldenAgeEnd = 55;
   this.manAvgDieAge = 75;
   this.femalAvgDieAge = 78;
@@ -81,8 +81,10 @@ App.fn.renderAge = function(){
     window.dispatchEvent(new Event('updateAge'));
   }
 
-  var title = 'Golden Years Left';
-  if(this.ageYear > this.goldenAgeEnd){
+  var title = 'Younth Years Left';
+  if(this.younthAgeEnd < this.ageYear && this.ageYear < this.goldenAgeEnd){
+    title = 'Golden Years Left';
+  }else if(this.ageYear > this.goldenAgeEnd){
     title = 'Survival Years Left';
   };
 
@@ -105,7 +107,7 @@ App.fn.renderAge = function(){
 App.fn.renderLifeLoading = function(){
   this.renderedAgeYear = this.ageYear;
   var ageYear = this.ageYear; 
-  var goldenAgeStart = this.goldenAgeStart;
+  var younthAgeEnd = this.younthAgeEnd;
   var goldenAgeEnd = this.goldenAgeEnd;
   var manAvgDieAge = this.manAvgDieAge;
   nv.addGraph(function() {
@@ -121,8 +123,8 @@ App.fn.renderLifeLoading = function(){
 
   function exampleData() {
     return {
-        "ranges":[goldenAgeStart, goldenAgeEnd, manAvgDieAge],  //Minimum, mean and maximum values.
-        "rangeLabels":['Die','Golden Age End','Golden Age Start'],
+        "ranges":[younthAgeEnd, goldenAgeEnd, manAvgDieAge],  //Minimum, mean and maximum values.
+        "rangeLabels":['Die','Golden Age End','Younth Age End'],
         "measures":[ageYear],         //Value representing current measurement (the thick blue line in the example)
         "measureLabels":['Current Age'],
     };
