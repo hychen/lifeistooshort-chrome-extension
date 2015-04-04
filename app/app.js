@@ -5,7 +5,7 @@ var $$ = document.querySelectorAll.bind(document);
 
 var App = function($el){
   this.$el = $el;
-  this.geekMode = true;
+  this.geekMode = false;
   this.younthAgeEnd = 22;
   this.goldenAgeEnd = 55;
   this.manAvgDieAge = 75;
@@ -110,7 +110,7 @@ App.fn.renderLifeLoading = function(){
   var ageYear = this.ageYear; 
   var younthAgeEnd = this.younthAgeEnd;
   var goldenAgeEnd = this.goldenAgeEnd;
-  var manAvgDieAge = this.manAvgDieAge;
+  var LifeEnd = this.manAvgDieAge;
   nv.addGraph(function() {
     var chart = nv.models.bulletChart();
 
@@ -124,7 +124,7 @@ App.fn.renderLifeLoading = function(){
 
   function exampleData() {
     return {
-        "ranges":[younthAgeEnd, goldenAgeEnd, manAvgDieAge],  //Minimum, mean and maximum values.
+        "ranges":[younthAgeEnd, goldenAgeEnd, LifeEnd],  //Minimum, mean and maximum values.
         "rangeLabels":['Die','Golden Age End','Younth Age End'],
         "measures":[ageYear],         //Value representing current measurement (the thick blue line in the example)
         "measureLabels":['Current Age'],
