@@ -81,9 +81,15 @@ App.fn.renderAge = function(){
     window.dispatchEvent(new Event('updateAge'));
   }
 
+  var title = 'Golden Years Left';
+  if(this.ageYear > this.goldenAgeEnd){
+    title = 'Survival Years Left';
+  };
+
   requestAnimationFrame(function(){
     if(this.geekMode){
       this.html(this.view('age')({
+        title             : title,
         year              : majorMinorYear2base,
         milliseconds      : majorMinorMS2base,
       }));
