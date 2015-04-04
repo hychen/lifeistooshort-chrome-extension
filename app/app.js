@@ -97,6 +97,7 @@ App.fn.renderAge = function(){
       }));
     }else{
       this.html(this.view('age')({
+        title             : title,
         year              : majorMinorYear,
         milliseconds      : majorMinorMS,
       }));
