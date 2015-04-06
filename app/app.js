@@ -12,8 +12,8 @@ var App = function($el){
   this.femalAvgDieAge = 78;
   this.humanAvgDieAge = 100;
   this.quotes = [
-    "If this were next year, nwhat are three things you want to be different?",
-    "If this were the end of your life, \nwhat are three things you want to be different?",
+    "If this were next year, what are three things you want to be different?",
+    "If this were the end of your life, what are three things you want to be different?",
     "Have you found joy in your life?", 
     "Has your life brought joy to others?",
   ];
