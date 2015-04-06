@@ -12,9 +12,10 @@ var App = function($el){
   this.femalAvgDieAge = 78;
   this.humanAvgDieAge = 100;
   this.quotes = [
-    "Life isn't about finding yourself. Life is about creating yourself.",
-    "Life is a dream for the wise, a game for the fool, a comedy for the rich, a tragedy for the poor.",
-    "In the end, it's not the years in your life that count. It's the life in your years."
+    "If this were next year, nwhat are three things you want to be different?",
+    "If this were the end of your life, \nwhat are three things you want to be different?",
+    "Have you found joy in your life?", 
+    "Has your life brought joy to others?",
   ];
   this.randomQuote = _.random(0, this.quotes.length - 1);
 
