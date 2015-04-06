@@ -11,6 +11,13 @@ var App = function($el){
   this.manAvgDieAge = 75;
   this.femalAvgDieAge = 78;
   this.humanAvgDieAge = 100;
+  this.quotes = [
+    "Life isn't about finding yourself. Life is about creating yourself.",
+    "Life is a dream for the wise, a game for the fool, a comedy for the rich, a tragedy for the poor.",
+    "In the end, it's not the years in your life that count. It's the life in your years."
+  ];
+  this.randomQuote = _.random(0, this.quotes.length - 1);
+
   this.load();
 
   this.$el.addEventListener(
@@ -94,12 +101,14 @@ App.fn.renderAge = function(){
         title             : title,
         year              : majorMinorYear2base,
         milliseconds      : majorMinorMS2base,
+        quote             : this.quotes[this.randomQuote],
       }));
     }else{
       this.html(this.view('age')({
         title             : title,
         year              : majorMinorYear,
         milliseconds      : majorMinorMS,
+        quote             : this.quotes[this.randomQuote],
       }));
     }
   }.bind(this));
