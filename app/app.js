@@ -13,7 +13,7 @@ var App = function($el){
   this.humanAvgDieAge = 100;
   this.quotes = [
     "What are 3 things that are going well until now?",
-    "What are 3 things that could improve until now?
+    "What are 3 things that could improve until now?",
     "If this were next year, what are three things you want to be different?",
     "If this were the end of your life, what are three things you want to be different?",
     "Have you found joy in your life?", 
