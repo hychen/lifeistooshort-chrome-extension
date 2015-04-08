@@ -1,5 +1,6 @@
 Life Is Too Short
 =================
+[install via chrome web store](https://chrome.google.com/webstore/detail/life-is-too-short/aadhbgjahiajaajfcmbkjdacfpghlphb)
 
 Just remind you LIFE is fukcing short when you surfing the web,
 
