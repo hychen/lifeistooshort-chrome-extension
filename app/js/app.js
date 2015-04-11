@@ -116,7 +116,7 @@ App.fn.renderAge = function(){
 
 App.fn.renderLifeLoading = function(){
   this.renderedAgeYear = this.ageYear;
-  var ageYear = this.ageYear; 
+  var ageYear = this.ageYear;
   var YouthAgeEnd = this.YouthAgeEnd;
   var goldenAgeEnd = this.goldenAgeEnd;
   var LifeEnd = this.manAvgDieAge;
