@@ -3,7 +3,7 @@
 
    "background": {
       "persistent": false,
-      "scripts": [ "motivation.js" ]
+      "scripts": [ "js/motivation.js" ]
    },
    "chrome_url_overrides": {
       "newtab": "dashboard.html"
@@ -11,7 +11,7 @@
    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
    "description": "Replace new tab page with LifeIsTooShort.",
    "manifest_version": 2,
-   "name": "Life Is Too Short",
+   "name": "Life_Is_Too_Short",
    "offline_enabled": true,
    "version": "0.2.1"
 }
