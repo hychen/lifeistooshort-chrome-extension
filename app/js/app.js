@@ -1,3 +1,14 @@
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-62016023-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = 'https://ssl.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+
 (function(){
 
 var $  = document.getElementById.bind(document);
@@ -16,12 +27,12 @@ var App = function($el){
     "What are 3 things that could improve until now?",
     "If this were next year, what are three things you want to be different?",
     "If this were the end of your life, what are three things you want to be different?",
-    "Have you found joy in your life?", 
+    "Have you found joy in your life?",
     "Has your life brought joy to others?",
     "What level do you want to reach in your career?",
     "How much do you want to earn, by what stage? How is this related to your career goals?",
     "Is there any knowledge you want to acquire in particular?"
-  
+
   ];
   this.randomQuote = _.random(0, this.quotes.length - 1);
 
