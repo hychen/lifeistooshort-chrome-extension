@@ -10,6 +10,7 @@ jade = require 'gulp-jade'
 plumber = require 'gulp-plumber'
 runSeq = require 'run-sequence'
 shell = require 'shelljs'
+changed = require 'gulp-changed'
 
 baseDir = './app'
 preparation = [
@@ -20,13 +21,15 @@ preparation = [
 
 gulp.task 'jade', ->
   gulp.src './app/jade/**/*.jade'
-    .pipe jade()
+    .pipe changed('./build')
     .pipe plumber()
+    .pipe jade()
     .pipe gulp.dest('./build/')
     .pipe notify('jade: <%= file.relative %>')
 
 gulp.task 'coffee', ->
   gulp.src './app/coffee/**/*.coffee'
+    .pipe changed('./build')
     .pipe plumber()
     .pipe coffee()
     .pipe gulp.dest('./build/js/')
@@ -39,6 +42,7 @@ gulp.task 'prepare', ->
 
 gulp.task 'sass', ->
   gulp.src './app/sass/**/*.sass'
+    .pipe changed('./build')
     .pipe plumber()
     .pipe sass
       errLogToConsole: true
