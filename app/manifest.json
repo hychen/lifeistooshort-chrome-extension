@@ -12,7 +12,6 @@
    "description": "Replace new tab page with LifeIsTooShort.",
    "manifest_version": 2,
    "name": "Life_Is_Too_Short",
-   "offline_enabled": true,
-   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
-   "version": "0.2.2"
+   "offline_enabled": true
+   "version": "0.2.3"
 }
