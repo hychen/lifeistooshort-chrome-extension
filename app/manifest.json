@@ -12,6 +12,6 @@
    "description": "Replace new tab page with LifeIsTooShort.",
    "manifest_version": 2,
    "name": "Life_Is_Too_Short",
-   "offline_enabled": true
+   "offline_enabled": true,
    "version": "0.2.3"
 }
