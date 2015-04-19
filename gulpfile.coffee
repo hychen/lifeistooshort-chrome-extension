@@ -9,6 +9,7 @@ coffee = require 'gulp-coffee'
 jade = require 'gulp-jade'
 plumber = require 'gulp-plumber'
 runSeq = require 'run-sequence'
+shell = require 'shelljs'
 
 baseDir = './app'
 preparation = [
@@ -16,10 +17,6 @@ preparation = [
   './app/css/vendor/**/*'
   './app/manifest.json'
 ]
-
-# Clean
-gulp.task 'clean', ->
-  del ['build', 'dist']
 
 gulp.task 'jade', ->
   gulp.src './app/jade/**/*.jade'
@@ -36,6 +33,7 @@ gulp.task 'coffee', ->
     .pipe notify('coffee: <%= file.relative %>')
 
 gulp.task 'prepare', ->
+  shell.rm('-rf', ['build', 'dist'])
   gulp.src preparation, {base: './app'}
     .pipe gulp.dest('./build/')
 
@@ -61,5 +59,15 @@ gulp.task 'watch', ->
   gulp.watch './app/sass/**/*.sass', ['sass']
   gulp.watch './app/jade/**/*.jade', ['jade']
 
-gulp.task 'release', ['clean', 'build', 'pack']
-gulp.task 'dev', ['prepare' , 'build', 'watch']
+gulp.task 'release', ->
+  runSeq(
+    'prepare',
+    'build',
+    'pack'
+  )
+
+gulp.task 'dev', ->
+  runSeq(
+    'prepare',
+    ['build', 'watch']
+  )
