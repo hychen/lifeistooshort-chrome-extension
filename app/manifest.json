@@ -3,7 +3,7 @@
 
    "background": {
       "persistent": false,
-      "scripts": [ "js/motivation.js" ]
+      "scripts": [ "js/background.js" ]
    },
    "chrome_url_overrides": {
       "newtab": "dashboard.html"
