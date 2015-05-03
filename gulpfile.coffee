@@ -39,6 +39,7 @@ gulp.task 'prepare', ->
   shell.rm('-rf', ['build', 'dist'])
   gulp.src preparation, {base: './app'}
     .pipe gulp.dest('./build/')
+    .pipe notify('preparation: <%= file.relative %>')
 
 gulp.task 'sass', ->
   gulp.src './app/sass/**/*.sass'
@@ -59,6 +60,7 @@ gulp.task 'pack', ->
     .pipe gulp.dest 'dist'
 
 gulp.task 'watch', ->
+  gulp.watch preparation, ['prepare']
   gulp.watch './app/coffee/**/*.coffee', ['coffee']
   gulp.watch './app/sass/**/*.sass', ['sass']
   gulp.watch './app/jade/**/*.jade', ['jade']
