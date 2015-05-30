@@ -18,14 +18,24 @@ html
       <button type="submit">Motivate</button>
       </footer>
       <form>
+
     script#age-template(type='text/x-handlebars-template').
       <h1 class="age-label">{{title}}</h1>
       <h2 class="count">{{year}}<sup>.{{milliseconds}}</sup></h2>
     #chart(style='width:59%')
       svg(style='height:80px')
+
+    #month-bar
+    script#month-template(type='text/x-handlebars-template').
+      <h1 class="age-label">{{title}}</h1>
+      <h2 class="count">{{days}}<sup>.{{milliseconds}}</sup></h2>
+    #month-chart(style='width:59%')
+      svg(style='height:80px')
+
     script(src='js/libs/d3.v3.min.js')
     script(src='js/libs/nv.d3.min.js')
     script(src='js/libs/handlebars.js')
     script(src='js/libs/underscore-min.js')
+    script(src='js/libs/moment.min.js')
     script(src='js/app.js')
     script(src='js/libs/ga.js')

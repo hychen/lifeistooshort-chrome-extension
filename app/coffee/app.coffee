@@ -1,3 +1,5 @@
+'use strict'
+
 do ->
   $ = document.getElementById.bind(document)
   $$ = document.querySelectorAll.bind(document)
@@ -21,13 +23,28 @@ do ->
       'How much do you want to earn, by what stage? How is this related to your career goals?'
       'Is there any knowledge you want to acquire in particular?'
     ]
+    @monthChartData =
+      ranges: [
+        10
+        20
+        moment().endOf('month').format('DD')
+      ]
+      rangeLabels: [
+        "Late of Month"
+        "Middle of Month"
+        "Early of Month"
+      ]
+      'measures': [moment().format('DD')]
+      'measureLabels': [ 'Current Day' ]
+    @currentMonthLabel = moment().format('MMM')
+
     @randomQuote = _.random(0, @quotes.length - 1)
-    @load()
+    do @load
     @$el.addEventListener 'submit', @submit.bind(this)
     if @dob
-      @renderAgeLoop()
+      do @renderAgeLoop
     else
-      @renderChoose()
+      do @renderChoose
     return
 
   App.fn = App.prototype
@@ -46,11 +63,11 @@ do ->
   App.fn.submit = (e) ->
     e.preventDefault()
     input = @$$('input')[0]
-    if !input.valueAsDate
+    if not input.valueAsDate
       return
     @dob = input.valueAsDate
-    @save()
-    @renderAgeLoop()
+    do @save
+    do @renderAgeLoop
     return
 
   App.fn.renderChoose = ->
@@ -61,6 +78,27 @@ do ->
     window.addEventListener 'updateAge', @renderLifeLoading.bind(this)
     @interval = setInterval(@renderAge.bind(this), 100)
     return
+
+  App.fn.renderMonthLoop = ->
+    #window.addEventListener 'updateMonth', @renderLifeLoading.bind(this)
+    @interval = setInterval(@renderMonthText.bind(this), 100)
+
+    @renderChart 'month-chart', @monthChartData
+
+  App.fn.renderMonthText = ->
+    now = do moment
+    currentMonth = moment().endOf 'month'
+    remainingD = currentMonth.diff now, 'days'
+    remainingMS = currentMonth.diff now
+    title = "Days in #{@currentMonthLabel} Left"
+
+    requestAnimationFrame ( ->
+      @updateView 'month-bar', Handlebars.compile($('month-template').innerHTML)(
+        title: title
+        days: remainingD
+        milliseconds: remainingMS
+      )
+    ).bind(this)
 
   App.fn.renderAge = ->
     # career golden age.
@@ -76,7 +114,7 @@ do ->
     majorMinorYear2base = parseInt(majorMinorYear).toString(2)
     majorMinorMS2base = parseInt(majorMinorMS).toString(2)
     @ageYear = age.toString().split('.')[0]
-    if @renderedAgeYear != null and @ageYear != @renderedAgeYear
+    if @renderedAgeYear isnt null and @ageYear isnt @renderedAgeYear
       # redraw the life loading chart.
       window.dispatchEvent new Event('updateAge')
     else if !@renderedAgeYear
@@ -132,16 +170,30 @@ do ->
       chart
     return
 
+  App.fn.renderChart = (id, data) ->
+    nv.addGraph ->
+      chart = nv.models.bulletChart()
+      d3.select("#month-chart svg")
+        .datum(data)
+        .transition()
+        .duration(1000)
+        .call chart
+      chart
+
   App.fn.$$ = (sel) ->
     @$el.querySelectorAll sel
 
   App.fn.html = (html) ->
     @$el.innerHTML = html
-    return
 
   App.fn.view = (name) ->
     $el = $(name + '-template')
     Handlebars.compile $el.innerHTML
 
+  App.fn.updateView = (id, html) ->
+    $(id).innerHTML = html
+
   window.app = new App($('app'))
+  do app.renderMonthLoop
+
   return
