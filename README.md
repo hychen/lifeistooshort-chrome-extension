@@ -14,3 +14,7 @@ modified from Motivation Chrome Extension.
 - Shows days left in this month.
 
 ![](screenshot.png)
+
+## Authors
+- hychen <ossug.hychen at gmail.com>
+- kcliu <gjliou at cs.nctu.edu.tw>
