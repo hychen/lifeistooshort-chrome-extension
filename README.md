@@ -21,4 +21,4 @@ Just remind you LIFE is fukcing short when you surfing the web.
 - Modified from Motivation Chrome Extension.
 
 ## License
-- This source code of project is released under MIT license and the codes pictures of external project it are licensed per each projects.
+- This source code of project is released under MIT license and the codes, pictures of external project it used are licensed per each projects.
