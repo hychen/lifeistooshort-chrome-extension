@@ -2,9 +2,7 @@ Life Is Too Short
 =================
 [install via chrome web store](https://chrome.google.com/webstore/detail/life-is-too-short/aadhbgjahiajaajfcmbkjdacfpghlphb)
 
-Just remind you LIFE is fukcing short when you surfing the web,
-
-modified from Motivation Chrome Extension.
+Just remind you LIFE is fukcing short when you surfing the web.
 
 ## Features
 - Shows years left before you become a adult.
@@ -18,3 +16,9 @@ modified from Motivation Chrome Extension.
 ## Authors
 - hychen <ossug.hychen at gmail.com>
 - kcliu <gjliou at cs.nctu.edu.tw>
+
+## Acknowledge
+- Modified from Motivation Chrome Extension.
+
+## License
+- This source code of project is released under MIT license and the codes pictures of external project it are licensed per each projects.

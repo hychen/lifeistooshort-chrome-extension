@@ -1,0 +1,9 @@
+Files: app/coffee/*
+Copyright: 2015 Life Is Too Short Developers.
+License: MIT
+
+Files: /app/vendor/css/*
+License: per each projects.
+
+Files: /app/js/lib/*
+License: per each projects.

@@ -2,6 +2,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "license": "MIT", 
   "devDependencies": {
     "coffee-script": "^1.9.1",
     "del": "^1.1.1",
