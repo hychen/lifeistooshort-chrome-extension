@@ -8,7 +8,8 @@
       "newtab": "dashboard.html"
     },
     "permissions": [
-      "management"
+      "management",
+      "storage"
     ],
     "content_security_policy": "script-src 'self' 'unsafe-eval' https://cdn.segment.com https://www.google-analytics.com; object-src 'self' ",
     "description": "Replace new tab page with Life Is Too Short.",
