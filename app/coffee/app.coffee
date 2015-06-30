@@ -57,7 +57,6 @@ do ->
 
   App.fn.save = ->
     if @dob
-      analytics.track('Submited Age', {age: @dob.getTime()})
       localStorage.dob = @dob.getTime()
     return
 
