@@ -119,7 +119,7 @@ do ->
       window.dispatchEvent new Event('updateAge')
     else if !@renderedAgeYear
       window.dispatchEvent new Event('updateAge')
-    title = 'Younth Years Left'
+    title = 'Youth Years Left'
     if @YouthAgeEnd < @ageYear and @ageYear < @goldenAgeEnd
       title = 'Golden Years Left'
     else if @ageYear > @goldenAgeEnd
